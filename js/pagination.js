@@ -10,7 +10,7 @@ function showPage(pageNumber, studentList) {
   for (let i = 0; i <= studentList.length; i++){
 
      // if student should be on this page number
-     if ((i + 1) >= from && (i + 1 ) <= to){
+     if ((i + 1) >= from && (i + 1) <= to){
 
         // show the student
         $(studentList[i]).show()
@@ -27,7 +27,7 @@ function appendPageLinks(studentList) {
     let pageLinkHTML = `<ul class="pagination">`;
 
     // “for” every page
-    for (let i=1; i<=pageLinkCount; i++){
+    for (let i = 1; i <= pageLinkCount; i++){
 
         // add a page link to the page link section
         pageLinkHTML += `<li><a>${i}</a></li>`;
@@ -75,7 +75,7 @@ function searchList() {
 
     // Obtain the value of the search input
     let searchText = $('.page-header .student-search input').val();
-    if (searchText === "") {
+    if ($.trim(searchText) === "") {
       initializePage();
       return
     }
@@ -112,7 +112,6 @@ function searchList() {
     }
 
     // Call showPage to show first ten students of matched list
-    debugger;
     showPage(1, matchedStudents);
 
     if (matchedStudents.length > itemsPerPage){
